@@ -1,0 +1,70 @@
+body{
+    background-color: antiquewhite;
+}
+h1, h2 {
+    color: rgb(42, 61, 165);
+    text-decoration: underline;
+}
+p {
+    color: rgb(134, 87, 53);
+    font-family: Arial, sans-serif;
+}
+
+.highlight {
+    background-color: rgb(68, 68, 8);
+    font-style: italic;
+    padding: 5px;
+    background-color: rgb(194, 166, 131);
+}
+
+
+#main-title {
+    color: rgb(72, 72, 150);
+    text-align: center;
+    border-bottom: 2px solid black;
+    
+}
+
+h2, p, li {
+    border: 2px solid rgb(132, 145, 132);
+    padding: 5px;
+    margin: 5px;
+   background-color: rgb(245, 239, 230);
+}
+div p {
+    color: brown;
+    font-weight: bold;
+}
+
+
+div > ul > li {
+    color: rgb(1, 119, 1);
+}
+
+
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+ul li:first-child {
+    font-weight: bold;
+}
+ul li:last-child {
+    color: rgb(69, 151, 61);
+}
+
+/* Pseudo-elements */
+
+p::first-letter {
+    font-size: 24px;
+    color: rgb(255, 0, 76);
+}
+
+/* Image Styling */
+img {
+    border: 2px solid black;
+    width: 250px;
+    display: block;
+    margin: 20px auto;
+}
