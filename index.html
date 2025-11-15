@@ -2,45 +2,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LAB2</title>
+  <title>home page </title>
   <style>
 
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background-color: rgb(243, 222, 166);
+      background-color: rgb(224, 173, 173);
       color: #333;
     }
-   
-        @media(max-width:600px){
-            body{font-size:15px ;}
-            h1{font-size:30px ;}
-            h2{font-size: 25px;}
-            h3{font-size: 20;}
-            body{background-color: rgb(161, 161, 189);}
-        }
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }.course-info,.student-info {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 18px;
-    }
-    .experiment-list {
+    .container {
   display: flex;
   flex-direction: column;
   border-width: 100px;
   border: 4px solid;
-  color: rgb(3, 105, 3);
+  color: rgb(105, 3, 83);
   align-items: center;
-  
+   background-color: rgb(214, 179, 179);
     }  
-    a {
-      color: rgb(109, 39, 109); 
-      background-color: rgb(67, 100, 124);
+    
+    
+    .btn{
+      background-color: #d44a8a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0;
     }
     
+
+    h1 {
+      text-align: center;
+      color: #063d74;
+    }
+    p{
+        color: #063d74;
+    }
+    .course-info,.student-info {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    a {
+      color: rgb(136, 0, 136); 
+    
+      
+    }
+   .btn:hover{
+    color: darkred;
+   } 
     .item_last{
       align-self: flex-end;
    
@@ -58,15 +71,16 @@
   <div class="student-info">
     <p><b>Name:</b> Nasheman   <b>Registration ID</b>: FA22-BCE-072 </p>
   </div>
-  
-   <p class="item"> This is my personal collection of lab experiments.</p>
-    <ol class="experiment-list">
-    <li class="item1"><p><a href="lab1.html">click me to open lab1</a></p>
-    <li class="item2"><p><a href="lab3.html">click me to open lab3</a></p>
-    <li class="item3"><p><a href="lab4.html">click me to open lab4</a></p></li>
-    <li class="item4"><p><a href="lab5.html">click me to open lab5</a></p></li>
-    <li class="item_last"><p><a href="lab5.html">click me to open lab: Nasheman</a></p></li>
-    </ol>
+  <p class="item"> This is my personal collection of lab experiments.</p>
+  <div class="container">
+    <ol>
+    <li><p><button class="btn" onclick="location.href='lab1.html'">Click me to Open Lab 1</button></li></p>
+    <li><p><button class="btn" onclick="location.href='lab2.html'">Click me to Open Lab 2</button></p></li>
+    <li><p><button class="btn" onclick="location.href='lab3.html'">Click me to Open Lab 3</button></p></li>
+    <li><p><button class="btn" onclick="location.href='lab4.html'">Click me to Open Lab 4</button></p></li>
+    <li><p><button class="btn" onclick="location.href='lab5.html'">Click me to Open Lab 5</button></p></li>
+    <li><p><button class="btn" onclick="location.href='lab5.html'">Click me to Open Lab 5</button></p></li>
+    </ol></div>
 
 </body>
 </html>
