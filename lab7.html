@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab7</title>
+    <style>
+        body{
+            background-color: rgb(216, 193, 193);
+            margin: 20px;
+        }
+        h1{
+            color: rgb(119, 9, 9);
+            text-align: center;
+        }
+        h2{
+           color: rgb(119, 9, 9);
+        }
+p{
+   color: rgb(119, 9, 9);
+   font-weight: bold;
+}
+input{
+    border-radius: 5px;
+}
+button{
+    border-radius: 10px;
+    font-size: 18px;
+   background-color: rgb(165, 74, 74);
+    color: beige;
+    padding: 5px 5px;
+    border: none;
+}
+button:hover{
+    background-color: brown;
+}
+input[type="number"]{
+    padding: 5px;
+  border-bottom:5px;
+  cursor: pointer;
+  background-color: rgb(207, 181, 171);
+}
+.nash{
+    background-color: rgb(207, 181, 171);
+    padding: 10px;
+    
+}
+    </style>
+</head>
+<body> <div class="nash">
+    <h1>Javascript Fundamentals and console programming</h1></div>
+
+    <h2>Task1</h2>
+    <button onclick="task1()">Task1: Show name and Registration ID</button>
+
+    <h2>Task2</h2>
+
+    <p>Enter 1st number: <input type="number" id="x"></p>
+    <p>Enter 2nd number: <input type="number" id="y"></p>
+
+    <button onclick="task2()" >Task 2: Arithmetic and Comparison</button>
+
+    <p id="sumResult">Sum is :</p>
+    <p id="subResult">Subtraction is: </p>
+    <p id="mulResult">Multiplication is: </p>
+    <p id="divResult">Division is: </p>
+    <p id="compResult"></p>
+
+<script>
+function task1(){
+    let name = prompt("Enter your name:");
+    let reg = prompt("Enter your registration ID:");
+    alert("My name is: " + name + "\nReg ID is: " + reg);
+}
+
+function task2(){
+    let x = document.getElementById('x').value;
+    let y = document.getElementById('y').value;
+
+    let x1 = parseFloat(x);
+    let y1 = parseFloat(y);
+
+    let sum = x1 + y1;
+    let sub = x1 - y1;
+    let mul = x1 * y1;
+    let div = x1 / y1;
+    let comp = x1 > y1;
+
+    document.getElementById("sumResult").innerHTML = "Sum is: " + sum;
+    document.getElementById("subResult").innerHTML = "Subtraction is: " + sub;
+    document.getElementById("mulResult").innerHTML = "Multiplication is: " + mul;
+    document.getElementById("divResult").innerHTML = "Division is: " + div;
+    document.getElementById("compResult").innerHTML = "Is first number > second number? " + comp;
+}
+</script>
+
+</body>
+</html>
