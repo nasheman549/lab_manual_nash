@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+}
+h1{
+   color: white;
+}
+h2{
+    color: white;
+}
+.nash{
+    width: 80%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+     border: 5PX SOLID rgb(229, 255, 0);
+}
+
+ .screen,.screen1{
+    color: white;
+    width: 80%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+   
+}
+
+/* Hide class */
+.hidden{
+    display: none;
+}
+
+button{
+    margin: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+   background: brown;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #e68900;
+}
+
+#choices button{
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+}
+#choices{
+    border: 5px solid yellow;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+</style>
+<body>
+    <div id="start-screen" class="screen">
+        <h1>Welcome to Quiz App</h1>
+       <div class="nash"><button id="start-btn">Start Quiz</button></div> 
+    </div>
+    <div id="quiz-screen" class="screen1 hidden">
+        <h2 id="question-text"></h2>
+        <div id="choices"></div>
+        <p id="feedback"></p>
+    </div>
+    <div id="result-screen" class="screen1 hidden">
+        <h2>Your Score:</h2>
+        <p id="final-score"></p>
+        <h3 id="final-message"></h3>
+    </div>
+
+    
+    <script>
+        const questions = [
+    { q: "What is the name of the largest desert in pakistan?", choices: ["Thar Desert", "kharan desert","cholistan Desert,","Indus Valley Desert"], correct: 0 },
+    { q: "What is the name of Pakistan's first Satellite", choices: ["Badar-1", "PakSat-1"], correct: 0 },
+    { q: "Lahore is the capital of Pakistan?", choices: ["True", "False"], correct: 0 },
+    { q: "JavaScript can change HTML content?", choices: ["True", "False"], correct: 0 },
+    { q: "Flexbox helps in responsiveness?", choices: ["True", "False"], correct: 0 }
+];
+
+let index = 0;
+let score = 0;
+
+const startScreen = document.getElementById("start-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
+
+document.getElementById("start-btn").addEventListener("click", startQuiz);
+
+function startQuiz() {
+    startScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    loadQuestion();
+}
+
+function loadQuestion() {
+    const q = questions[index];
+    document.getElementById("question-text").innerText = q.q;
+
+    const choicesDiv = document.getElementById("choices");
+    choicesDiv.innerHTML = "";
+
+    q.choices.forEach((choice, i) => {
+        let btn = document.createElement("button");
+        btn.innerText = choice;
+        btn.onclick = () => checkAnswer(i);
+        choicesDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected) {
+    const feedback = document.getElementById("feedback");
+
+    if (selected === questions[index].correct) {
+        score++;
+        feedback.innerText = "Correct!";
+    } else {
+        feedback.innerText = "Wrong!";
+    }
+
+    setTimeout(() => {
+        feedback.innerText = "";
+        index++;
+
+        if (index < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }, 800);
+}
+
+function showResult() {
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
+
+    document.getElementById("final-score").innerText = score + "/" + questions.length;
+
+    if (score >= 4) {
+        document.getElementById("final-message").innerText = "Great Job!🥳👑🎷🏆🥇🥳👑🎷🏆🥇🥳👑🎷🏆🥇🥳🥳🥳🥳🥳";
+    } else {
+        document.getElementById("final-message").innerText = "Try Again!🙄👊🏻👎🏻😡🌂🔪🔫🙄👊🏻👎🏻😡🌂🔪🔫🙄👊🏻👎🏻😡🌂🔪🔫";
+    }
+}
+    </script>
+</body>
+</html>
