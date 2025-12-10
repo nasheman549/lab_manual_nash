@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Web Page</title>
+  <style>
+    body {
+      background-color: burlywood;
+      font-family: Arial;
+}
+.cont {
+      display: flex;
+      margin: 20px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+}
+    h1 {
+      text-align: center;
+      color: darkred;
+}
+.but {
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+}
+.clr,.size,.move {
+      background-color: black;
+}
+.clr {
+      width: 150px;
+      height: 150px;
+}
+.size {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+}
+.move {
+      width: 200px;
+      height: 140px;
+      border-radius: 50%;
+      transition: 0.7s;
+}
+.a {
+      margin: 5px;
+      padding: 15px;
+      width: 80%;
+      max-width: 700px;
+      background-color: darkred;
+      border: none;
+}
+    h3 {
+      text-align: center;
+      background-color: black;
+      color: white;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+}
+  </style>
+</head>  
+<body>
+  <h1>INTERACTIVE WEB PAGE USING FUNCTION AND SWITCH</h1>
+  <div class="cont">
+    <div class="a">
+      <p><button class="but" onclick="handleAction('color')">Change Box Color</button></p>
+      <div class="clr" id="clr"></div>
+    </div>
+
+    <div class="a">
+      <p><button class="but" onclick="handleAction('resize')">Decrease Circle Size</button></p>
+      <div id="size" class="size"></div>
+    </div>
+
+    <div class="a">
+      <p><button class="but" onclick="handleAction('move')">Move This Oval</button></p>
+      <div class="move" id="move"></div>
+    </div>
+  </div>
+
+  <h3 id="text" ondblclick="handleAction('text')">Click this text to change it!</h3>
+
+  <script>
+    
+    function performAction(callback) {
+      callback();
+}
+
+    function changeColor() {
+      document.getElementById("clr").style.background = "purple";
+}
+
+    function resizeCircle() {
+      const circle = document.getElementById("size");
+      circle.style.width = "150px";
+      circle.style.height = "150px";
+}
+
+    function moveOval() {
+      const oval = document.getElementById("move");
+      oval.style.transform = "translateX(200px)";
+}
+
+    function changeText() {
+      document.getElementById("text").innerHTML = "You double-clicked me!";
+}
+    function handleAction(type) {
+      switch (type) {
+        case "color":
+          performAction(changeColor);
+          break;
+        case "resize":
+          performAction(resizeCircle);
+          break;
+        case "move":
+          performAction(moveOval);
+          break;
+        case "text":
+          performAction(changeText);
+          break;
+        default:
+          console.log("Unknown action");
+}
+}
+  </script>
+</body>
+</html>
+
+
+
